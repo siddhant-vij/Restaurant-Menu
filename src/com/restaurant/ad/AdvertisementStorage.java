@@ -14,7 +14,7 @@ public class AdvertisementStorage {
     videos.add(new Advertisement(someContent, "Third Video", 400, 2, 10 * 60));
   }
 
-  public static AdvertisementStorage getInstance() {
+  public static synchronized AdvertisementStorage getInstance() {
     if (instance == null) {
       instance = new AdvertisementStorage();
     }

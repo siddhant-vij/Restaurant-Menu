@@ -1,5 +1,8 @@
 package com.restaurant.ad;
 
+import com.restaurant.statistics.StatisticsManager;
+import com.restaurant.statistics.event.VideosSelectedEventDataRow;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -19,6 +22,10 @@ public class AdvertisementManager {
   public void processVideos() {
     this.totalTimeSecondsLeft = Integer.MAX_VALUE;
     obtainOptimalVideoSet(new ArrayList<Advertisement>(), timeSeconds, 0l);
+
+    VideosSelectedEventDataRow row = new VideosSelectedEventDataRow(optimalVideoSet, maxAmount,
+        timeSeconds - totalTimeSecondsLeft);
+    StatisticsManager.getInstance().record(row);
 
     displayAdvertisement();
   }

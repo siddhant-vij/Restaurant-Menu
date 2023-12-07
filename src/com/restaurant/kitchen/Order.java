@@ -30,6 +30,14 @@ public class Order {
     return result.toString();
   }
 
+  public Tablet getTablet() {
+    return tablet;
+  }
+
+  public List<Dish> getDishes() {
+    return dishes;
+  }
+
   public boolean isEmpty() {
     return dishes.isEmpty();
   }
