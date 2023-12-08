@@ -30,6 +30,10 @@ public class StatisticsManager {
     return instance;
   }
 
+  public Set<Cook> getCooks() {
+    return cooks;
+  }
+
   public void register(Cook cook) {
     this.cooks.add(cook);
   }
